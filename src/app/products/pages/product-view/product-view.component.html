@@ -1,0 +1,28 @@
+<div class="flex flex-col w-dvw">
+
+  <div
+    *ngIf="product !== null"
+    class="flex flex-row bg-white min-h-lvh w-2/3 mx-auto py-4 px-2"
+  >
+
+    <div class="w-1/2 ">
+        <img [src]="product?.image" class="aspect-square w-full h-auto rounded-lg" />
+    </div>
+    <div class="w-1/2 flex flex-col p-2 gap-y-10 h-full">
+      <h2 class="font-semibold text-xl md:text-3xl text-seccondary">{{product?.name}}</h2>
+      <div class="w-full truncate ">
+
+        <p class="text-xs md:text-xl text-gray-700">{{product?.description}}</p>
+      </div>
+
+      <div class="flex flex-row justify-center relative button-0">
+        <button class="mt-2 px-4 py-1 bg-accent text-white rounded-md">
+          <fa-icon [icon]="faCartPlus"></fa-icon>
+          Agregar al carrito
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

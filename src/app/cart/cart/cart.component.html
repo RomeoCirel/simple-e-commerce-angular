@@ -1,0 +1,46 @@
+  <div class="absolute right-2 top-20 bg-neutral-100 max-h-lvh flex flex-cols justify-center border shadow-2xl shadow-zinc-700 rounded-lg pb-0 px-0 ">
+    <div class="w-full">
+      <div class="flex flex-row text-white justify-center gap-x-2 px-0 py-3 w-full bg-accent rounded-t-lg">
+          <h2 class="text-sm font-semibold">Carrito</h2>
+          <fa-icon [icon]="faShoppingCart"></fa-icon>
+      </div>
+      <div class="flex flex-col gap-2 mt-2 py-2 ">
+        <ng-container *ngIf="items.length === 0; else List">
+          <div class="flex flex-row w-full justify-center items-center py-4">
+            <h2 class="text-gray-600 text-md font-semibold">No hay productos</h2>
+          </div>
+        </ng-container>
+        <ng-template #loading>
+          <div class="flex flex-row justify-center items-center">
+            <fa-icon [icon]="faSpinner" class="animate-spin"></fa-icon>
+          </div>
+        </ng-template>
+        <ng-template #List>
+          <ng-container *ngFor="let item of items">
+            <div class="flex flex-col gap-2 px-2">
+              <app-cart-item
+                [item]="item"
+                (addQuantity)="addQuantity($event)"
+                (removeQuantity)="removeQuantity($event)"
+                (deleteProduct)="deleteProduct($event)"
+              />
+            </div>
+          </ng-container>
+        </ng-template>
+      </div>
+      <div class="w-full flex flex-row bg-primary text-seccondary h-14 mt-2">
+        <div class="flex flex-row w-full px-2 py-3 justify-between items-center">
+          <h2 class="text-base font-semibold">Total</h2>
+          <h2 class="text-xl font-semibold">{{ total | currency }}</h2>
+        </div>
+      </div>
+      <div class="w-full flex flex-row gap-x-2 items-center justify-between p-2 text-sm">
+        <button class="mt-2 px-4 py-3 bg-accent text-white font-semibold rounded-md uppercase hover:bg-seccondary hover:text-white">
+          finalizar compra
+        </button>
+        <button class="mt-2 px-4 py-3 bg-primary text-seccondary font-semibold rounded-md uppercase hover:bg-seccondary hover:text-white" (click)="onClearCart()">
+          limpiar
+        </button>
+      </div>
+    </div>
+  </div>

@@ -1,1 +1,14 @@
-<p>product-list works!</p>
+<div class="w-full flex flex-row bg-primary min-h-lvh justify-center">
+  <div class="py-10 ">
+    <ng-container *ngIf="products.length > 0">
+      <div class="flex flex-row flex-wrap px-2 gap-6 justify-center">
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product"
+          (addToCart)="addToCart($event)"
+          (goToProductView)="goToProductView($event)"
+        />
+      </div>
+    </ng-container>
+  </div>
+</div>

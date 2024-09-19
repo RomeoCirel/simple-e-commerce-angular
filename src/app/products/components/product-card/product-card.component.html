@@ -1,0 +1,18 @@
+<div class="w-60 min-h-60 py-2 px-1 bg-white rounded-md border border-gray-600 shadow-lg hover:shadow-2xl hover:border-2 hover:border-seccondary ">
+  <div class="flex flex-col items-center">
+    <img class="w-full h-auto aspect-square object-cover rounded-md" [src]="product.image" alt="product.name" />
+    <div class="flex flex-col items-center mt-2">
+      <h1 class="text-lg font-bold text-gray-800">{{ product.name }}</h1>
+      <p class="text-sm text-gray-600">{{ product.description }}</p>
+      <p class="text-lg font-bold text-gray-800">{{ product.price | currency }}</p>
+      <div class="w-full flex flex-row justify-around gap-1">
+        <button class="mt-2 px-4 py-1 bg-gray-500 text-white rounded-md" (click)="onGoToProductView(product.id)">
+          <fa-icon [icon]="faEye"></fa-icon> ver mas
+        </button>
+        <button class="mt-2 px-4 py-1 bg-accent text-white rounded-md" (click)="onAddToCart(product)">
+          <fa-icon [icon]="faCartPlus"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,21 @@
-<div class="text-center text-5xl font-bold text-blue-500">
-  ¡Angular Tailwind CSS!
+
+<div class="w-full bg-accent text-primary shadow h-20 flex flex-row justify-between xl:justify-around items-center px-4">
+  <div class="w-32">
+    <p class=" text-xl font-semibold">MatesMer</p>
+  </div>
+  <div class="flex flex-row">
+    <button
+        (click)="toggleShowCart()"
+    >
+      <fa-icon
+        class=" hover:text-seccondary"
+        [icon]="faCartShopping"
+      > </fa-icon>
+    </button>
+
+  </div>
 </div>
-<router-outlet/>
+<app-cart *ngIf="showCart"/>
+<div class=" flex flex-row bg-primary min-h-lvh justify-center min-w-full">
+  <router-outlet/>
+</div>
